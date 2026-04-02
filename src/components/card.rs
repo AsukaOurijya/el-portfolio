@@ -4,7 +4,7 @@ use dioxus::prelude::*;
 pub fn Card(children: Element) -> Element {
     rsx! {
         div {
-            class: "terminal-card",
+            class: "terminal-card reveal-scroll reveal-scroll--card",
 
             div {
                 class: "terminal-card__topbar",

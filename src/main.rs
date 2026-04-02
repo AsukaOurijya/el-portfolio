@@ -58,7 +58,7 @@ fn Home() -> Element {
 
                 h2 {
                     id: "skills",
-                    class: "section-heading",
+                    class: "section-heading reveal-scroll reveal-scroll--heading",
                     "skills"
                 }
 
@@ -69,7 +69,7 @@ fn Home() -> Element {
 
                 h2 {
                     id: "works",
-                    class: "section-heading",
+                    class: "section-heading reveal-scroll reveal-scroll--heading",
                     "works"
                 }
 
@@ -80,7 +80,7 @@ fn Home() -> Element {
 
                 h2 {
                     id: "contact",
-                    class: "section-heading",
+                    class: "section-heading reveal-scroll reveal-scroll--heading",
                     "contact me"
                 }
 

@@ -4,7 +4,7 @@ use dioxus::prelude::*;
 pub fn Contact() -> Element {
     rsx! {
         div {
-            class: "contact-card",
+            class: "contact-card reveal-scroll reveal-scroll--card",
 
             form {
                 class: "contact-form",

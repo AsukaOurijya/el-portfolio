@@ -38,7 +38,7 @@ fn ProjectCard(image: Asset, title: String, github_href: String, live_href: Stri
 
     rsx! {
         article {
-            class: "project-card",
+            class: "project-card reveal-scroll reveal-scroll--card",
 
             img {
                 class: "project-card__image",

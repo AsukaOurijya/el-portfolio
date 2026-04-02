@@ -24,6 +24,7 @@ body {
         linear-gradient(to right, var(--grid) 1px, transparent 1px),
         linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
     background-size: 28px 28px;
+    animation: pageFade 700ms ease-out;
 }
 
 a {
@@ -44,6 +45,7 @@ a {
     padding: 12px 26px 13px;
     border-radius: 0 18px 18px 18px;
     background: #e8d8b3;
+    animation: navDrop 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .site-nav__brand {
@@ -96,6 +98,7 @@ a {
     text-underline-offset: 4px;
     text-transform: lowercase;
     letter-spacing: 0.01em;
+    animation: headingRise 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .terminal-card {
@@ -103,6 +106,7 @@ a {
     border-radius: 0 18px 0 0;
     background: var(--card-body);
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+    animation: cardRise 760ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .terminal-card__topbar {
@@ -210,6 +214,7 @@ a {
     font-size: 18px;
     font-weight: 800;
     cursor: pointer;
+    transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
 }
 
 .about-card__socials {
@@ -229,6 +234,7 @@ a {
     font-size: 22px;
     font-weight: 800;
     letter-spacing: -0.04em;
+    transition: transform 180ms ease, filter 180ms ease;
 }
 
 .about-card__social-icon {
@@ -330,6 +336,7 @@ a {
     padding: 18px 18px 20px;
     border-radius: 0 18px 18px 18px;
     background: var(--card-body);
+    animation: cardRise 760ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .project-card__image {
@@ -359,12 +366,14 @@ a {
     text-align: center;
     font-size: 18px;
     font-weight: 700;
+    transition: transform 180ms ease, background-color 180ms ease;
 }
 
 .contact-card {
     border-radius: 0 18px 18px 18px;
     background: var(--card-body);
     padding: 18px 28px 22px;
+    animation: cardRise 760ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .contact-form {
@@ -422,6 +431,7 @@ a {
     color: var(--ink);
     font-size: 18px;
     cursor: pointer;
+    transition: transform 180ms ease, filter 180ms ease;
 }
 
 .site-footer {
@@ -431,6 +441,151 @@ a {
     text-align: center;
     font-size: 18px;
     width: 100%;
+    animation: footerLift 820ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: 180ms;
+}
+
+.portfolio-section--about .terminal-card {
+    animation-delay: 120ms;
+}
+
+.portfolio-section--skills .terminal-card {
+    animation-delay: 200ms;
+}
+
+.portfolio-section--works .project-card:nth-child(1) {
+    animation-delay: 180ms;
+}
+
+.portfolio-section--works .project-card:nth-child(2) {
+    animation-delay: 260ms;
+}
+
+.portfolio-section--works .project-card:nth-child(3) {
+    animation-delay: 340ms;
+}
+
+.portfolio-section--contact .contact-card {
+    animation-delay: 220ms;
+}
+
+.about-card__button:hover,
+.contact-form__submit:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.03);
+}
+
+.about-card__social:hover {
+    transform: translateY(-2px) scale(1.04);
+    filter: brightness(1.04);
+}
+
+.project-card__link:hover {
+    transform: translateY(-2px);
+    background: #fffaf0;
+}
+
+@supports (animation-timeline: view()) {
+    .reveal-scroll {
+        animation-fill-mode: both;
+        animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+        animation-timeline: view(block);
+    }
+
+    .reveal-scroll--heading {
+        animation-name: headingRise;
+        animation-duration: 1ms;
+        animation-range: entry 0% cover 28%;
+    }
+
+    .reveal-scroll--card {
+        animation-name: cardRise;
+        animation-duration: 1ms;
+        animation-range: entry 0% cover 30%;
+    }
+
+    .reveal-scroll--footer {
+        animation-name: footerLift;
+        animation-duration: 1ms;
+        animation-range: entry 0% cover 45%;
+    }
+
+    .section-heading,
+    .terminal-card,
+    .project-card,
+    .contact-card,
+    .site-footer {
+        animation-delay: 0ms !important;
+    }
+
+    .portfolio-section--works .project-card:nth-child(1),
+    .portfolio-section--works .project-card:nth-child(2),
+    .portfolio-section--works .project-card:nth-child(3) {
+        animation-range: entry 0% cover 24%;
+    }
+}
+
+@keyframes pageFade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes navDrop {
+    from {
+        opacity: 0;
+        transform: translateY(-18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes headingRise {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes cardRise {
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes footerLift {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
 }
 
 @media (max-width: 840px) {
