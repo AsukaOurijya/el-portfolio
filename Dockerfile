@@ -20,7 +20,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 COPY --from=builder /app/target/release/portfolio /app/portfolio
-COPY --from=builder /app/assets /app/assets
+COPY --from=builder /app/assets /app/public/assets
 COPY --from=builder /app/Dioxus.toml /app/Dioxus.toml
 
 ENV IP=0.0.0.0
