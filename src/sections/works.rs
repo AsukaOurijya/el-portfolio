@@ -13,20 +13,20 @@ pub fn Works() -> Element {
             ProjectCard {
                 image: TODO_IMG,
                 title: "Get Things Done!".to_string(),
-                github_href: "#".to_string(),
-                live_href: "#".to_string(),
+                github_href: "https://github.com/AsukaOurijya/get-things-done".to_string(),
+                live_href: "https://get-things-done-iota.vercel.app/".to_string(),
             }
             ProjectCard {
                 image: SNAKE_IMG,
                 title: "snakey breekey".to_string(),
-                github_href: "#".to_string(),
+                github_href: "https://github.com/AsukaOurijya/Snakey-Breekey".to_string(),
                 live_href: "".to_string(),
             }
             ProjectCard {
                 image: CALCULATOR_IMG,
                 title: "My Calculator Gw".to_string(),
-                github_href: "#".to_string(),
-                live_href: "#".to_string(),
+                github_href: "https://github.com/AsukaOurijya/my-calculator-gw".to_string(),
+                live_href: "https://asukaourijya.github.io/my-calculator-gw/".to_string(),
             }
         }
     }

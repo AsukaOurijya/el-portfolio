@@ -1,4 +1,6 @@
 use dioxus::prelude::*;
+#[cfg(feature = "server")]
+use std::path::PathBuf;
 
 mod components;
 mod sections;
@@ -17,6 +19,16 @@ const TAILWIND_CSS: Asset = asset!("/assets/tailwind.css");
 const SCROLL_REVEAL_JS: Asset = asset!("/assets/scroll-reveal.js");
 
 fn main() {
+    #[cfg(feature = "server")]
+    {
+        let env_path = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join(".env");
+        let _ = dotenvy::from_path_override(env_path);
+    }
+
+    #[cfg(feature = "server")]
+    dioxus::serve(|| async move { Ok(dioxus::server::router(App)) });
+
+    #[cfg(not(feature = "server"))]
     dioxus::launch(App);
 }
 

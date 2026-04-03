@@ -114,16 +114,12 @@ pub fn About() -> Element {
                         p { class: "about-card__line", "Education: CS @ Universitas Indonesia" }
                         p {
                             class: "about-card__line about-card__line--multiline",
-                            "Interest: Software Engineering, Web Development,"
-                            br {}
-                            "Cloud Engineering, & DevOps"
+                            "Interest: Software & Cloud Engineering, Web Development, DevOps"
                         }
                         p { class: "about-card__line", "Strength: problem solving, creativity, commitment" }
                         p {
                             class: "about-card__quote",
-                            "Life Principle: “Abandoning your uniqueness is equivalent"
-                            br {}
-                            "to dying.” - Ryo Yamada, BTR"
+                            "Life Principle: \"Abandoning your uniqueness is equivalent to dying.\" - Ryo Yamada (Bocchi The Rock)"
                         }
                     }
                 }
