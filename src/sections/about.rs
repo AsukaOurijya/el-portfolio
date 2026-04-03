@@ -119,7 +119,9 @@ pub fn About() -> Element {
                         p { class: "about-card__line", "Strength: problem solving, creativity, commitment" }
                         p {
                             class: "about-card__quote",
-                            "Life Principle: \"Abandoning your uniqueness is equivalent to dying.\" - Ryo Yamada (Bocchi The Rock)"
+                            "Life Principle: \"Abandoning your uniqueness is equivalent to dying.\""
+                            br {}
+                            "- Ryo Yamada (Bocchi The Rock)"
                         }
                     }
                 }

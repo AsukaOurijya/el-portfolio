@@ -13,7 +13,7 @@ enum Route {
     Home {},
 }
 
-const FAVICON: Asset = asset!("/assets/favicon.ico");
+const FAVICON: Asset = asset!("/assets/ryo.ico");
 const MAIN_CSS: Asset = asset!("/assets/main.css");
 const TAILWIND_CSS: Asset = asset!("/assets/tailwind.css");
 const SCROLL_REVEAL_JS: Asset = asset!("/assets/scroll-reveal.js");
