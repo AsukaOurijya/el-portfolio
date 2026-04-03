@@ -1,10 +1,10 @@
 # Portfolio
 
-This project is a Dioxus 0.7 web app.
+This project is a Dioxus 0.7 portfolio app with fullstack contact form support.
 
-## Install the framework
+## Prerequisites
 
-1. Install Rust:
+1. Install Rust.
 
 Windows:
 
@@ -12,73 +12,102 @@ Windows:
 winget install Rustlang.Rustup
 ```
 
-macOS:
+macOS / Linux:
 
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
-Linux:
-
-```bash
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-```
-
-After installation, verify Rust is available:
+Verify the toolchain:
 
 ```bash
 rustc --version
 cargo --version
 ```
 
-2. Install the Dioxus CLI on any platform:
+2. Install the Dioxus CLI:
 
 ```bash
 cargo install dioxus-cli
 ```
 
-3. Add the web target used by this project:
+3. Add the web target if you want to build the browser client manually:
 
 ```bash
 rustup target add wasm32-unknown-unknown
 ```
 
-4. Verify the CLI is installed:
+This project is now fullstack, so `dx serve` is the normal way to run it. The wasm target is still useful for web builds, but it is not the main setup step anymore.
 
-```bash
-dx --version
+## Environment Setup
+
+Create a `.env` file in the project root with:
+
+```env
+RESEND_API_KEY=re_xxxxxxxxx
+CONTACT_FROM_EMAIL=onboarding@resend.dev
+CONTACT_FROM_NAME="Portfolio Visitors"
+CONTACT_TO_EMAIL=your@email.com
 ```
 
-## Install project dependencies
+Notes:
 
-From the project root, fetch the Rust dependencies:
+- `CONTACT_FROM_EMAIL` must be allowed by Resend.
+- For real delivery, verify your own domain in Resend and use a sender on that domain.
+- `CONTACT_TO_EMAIL` is the inbox that receives contact submissions.
+
+## Install Dependencies
+
+From the project root:
 
 ```bash
 cargo fetch
 ```
 
-This project already declares Dioxus in [`Cargo.toml`](/c:/Users/mazka/Documents/Rust/web_portfolio/portfolio/Cargo.toml) with the `router` feature and enables the `web` feature by default.
+Current project setup in [Cargo.toml](/c:/Users/mazka/Documents/Rust/web_portfolio/portfolio/Cargo.toml):
 
-## Run the development server
+- Dioxus `0.7.1`
+- `router` and `fullstack` enabled
+- custom features: `web`, `desktop`, `mobile`, `server`
+- `default = []`, so feature selection matters
 
-Start the Dioxus web server from the project root:
+## Run In Development
+
+Start the app from the project root:
 
 ```bash
 dx serve
 ```
 
-The CLI will build the app, start a local dev server, and watch for file changes.
+This runs the app in the normal Dioxus dev flow and serves the fullstack contact endpoint.
 
-## Optional commands
+## Useful Commands
 
-Run the app explicitly for the web platform:
+Run an explicit web/fullstack dev build:
 
 ```bash
 dx serve --platform web
 ```
 
-Create an optimized production build:
+Create a release web build:
 
 ```bash
 dx build --platform web --release
 ```
+
+Fetch dependencies without building:
+
+```bash
+cargo fetch
+```
+
+## Contact Form
+
+The contact form is implemented with a Dioxus server function and Resend email delivery.
+
+If submissions fail:
+
+- confirm `.env` exists in the project root
+- restart the dev server after changing `.env`
+- confirm the Resend sender is allowed
+- confirm the recipient email is valid
