@@ -23,6 +23,12 @@ fn main() {
     {
         let env_path = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join(".env");
         let _ = dotenvy::from_path_override(env_path);
+
+        if std::env::var("IP").is_err() {
+            unsafe {
+                std::env::set_var("IP", "0.0.0.0");
+            }
+        }
     }
 
     #[cfg(feature = "server")]
