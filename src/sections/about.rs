@@ -29,7 +29,8 @@ pub fn About() -> Element {
                         div {
                             class: "about-card__actions",
 
-                            button {
+                            a {
+                                href: "https://drive.google.com/file/d/1RtMo8QUJ4MPXxKe5qTYI96I_BLa7QGST/view?usp=sharing",
                                 class: "about-card__button",
                                 "Get My CV"
                             }
@@ -38,7 +39,7 @@ pub fn About() -> Element {
                                 class: "about-card__socials",
 
                                 a {
-                                    href: "#",
+                                    href: "https://github.com/AsukaOurijya",
                                     class: "about-card__social about-card__social--github",
                                     aria_label: "GitHub",
                                     svg {
@@ -51,7 +52,7 @@ pub fn About() -> Element {
                                     }
                                 }
                                 a {
-                                    href: "#",
+                                    href: "https://www.instagram.com/azkaaawliya/",
                                     class: "about-card__social about-card__social--instagram",
                                     aria_label: "Instagram",
                                     svg {
@@ -82,7 +83,7 @@ pub fn About() -> Element {
                                     }
                                 }
                                 a {
-                                    href: "#",
+                                    href: "https://www.linkedin.com/in/muh-azkaawliya/",
                                     class: "about-card__social about-card__social--linkedin",
                                     aria_label: "LinkedIn",
                                     svg {

@@ -98,7 +98,10 @@ a {
     text-underline-offset: 4px;
     text-transform: lowercase;
     letter-spacing: 0.01em;
-    animation: headingRise 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.reveal-scroll {
+    will-change: opacity, transform;
 }
 
 .terminal-card {
@@ -106,7 +109,6 @@ a {
     border-radius: 0 18px 0 0;
     background: var(--card-body);
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
-    animation: cardRise 760ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .terminal-card__topbar {
@@ -336,7 +338,6 @@ a {
     padding: 18px 18px 20px;
     border-radius: 0 18px 18px 18px;
     background: var(--card-body);
-    animation: cardRise 760ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .project-card__image {
@@ -373,7 +374,6 @@ a {
     border-radius: 0 18px 18px 18px;
     background: var(--card-body);
     padding: 18px 28px 22px;
-    animation: cardRise 760ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .contact-form {
@@ -441,32 +441,6 @@ a {
     text-align: center;
     font-size: 18px;
     width: 100%;
-    animation: footerLift 820ms cubic-bezier(0.22, 1, 0.36, 1) both;
-    animation-delay: 180ms;
-}
-
-.portfolio-section--about .terminal-card {
-    animation-delay: 120ms;
-}
-
-.portfolio-section--skills .terminal-card {
-    animation-delay: 200ms;
-}
-
-.portfolio-section--works .project-card:nth-child(1) {
-    animation-delay: 180ms;
-}
-
-.portfolio-section--works .project-card:nth-child(2) {
-    animation-delay: 260ms;
-}
-
-.portfolio-section--works .project-card:nth-child(3) {
-    animation-delay: 340ms;
-}
-
-.portfolio-section--contact .contact-card {
-    animation-delay: 220ms;
 }
 
 .about-card__button:hover,
@@ -522,6 +496,62 @@ a {
     .portfolio-section--works .project-card:nth-child(2),
     .portfolio-section--works .project-card:nth-child(3) {
         animation-range: entry 0% cover 24%;
+    }
+}
+
+@supports not (animation-timeline: view()) {
+    .js-scroll-reveal .reveal-scroll {
+        opacity: 0;
+    }
+
+    .js-scroll-reveal .reveal-scroll--heading {
+        transform: translateY(18px);
+        transition:
+            opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+            transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .js-scroll-reveal .reveal-scroll--card {
+        transform: translateY(28px);
+        transition:
+            opacity 760ms cubic-bezier(0.22, 1, 0.36, 1),
+            transform 760ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .js-scroll-reveal .reveal-scroll--footer {
+        transform: translateY(16px);
+        transition:
+            opacity 820ms cubic-bezier(0.22, 1, 0.36, 1),
+            transform 820ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .js-scroll-reveal .reveal-scroll.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .js-scroll-reveal .portfolio-section--about .terminal-card {
+        transition-delay: 120ms;
+    }
+
+    .js-scroll-reveal .portfolio-section--skills .terminal-card {
+        transition-delay: 200ms;
+    }
+
+    .js-scroll-reveal .portfolio-section--works .project-card:nth-child(1) {
+        transition-delay: 180ms;
+    }
+
+    .js-scroll-reveal .portfolio-section--works .project-card:nth-child(2) {
+        transition-delay: 260ms;
+    }
+
+    .js-scroll-reveal .portfolio-section--works .project-card:nth-child(3) {
+        transition-delay: 340ms;
+    }
+
+    .js-scroll-reveal .portfolio-section--contact .contact-card {
+        transition-delay: 220ms;
     }
 }
 
