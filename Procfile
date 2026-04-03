@@ -1,1 +1,1 @@
-web: cargo run --release --features server
+web: ./target/release/portfolio
